@@ -1,4 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_auto_routes/home/home_detail_view.dart';
+import 'package:flutter_auto_routes/product/navigator/app_router.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -14,7 +17,13 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: IconButton(onPressed: () {}, icon: Image.network(_url)),
+      body: IconButton(
+          onPressed: () {
+            context.router.navigate(HomeDetailRoute(url: _url));
+            // gittigi sayfadan geri gelmesin isteseydik
+            //context.router.navigate(HomeDetailRoute(url: _url));
+          },
+          icon: Image.network(_url)),
     );
   }
 }
